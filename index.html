@@ -1,1 +1,184 @@
-<!DOCTYPE html><html lang="ru"><head>    <meta charset="UTF-8">    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">    <link rel="stylesheet" href="css/style.min.css">    <title>Рандомайзер для мафии</title></head><body>    <div class="wrapper">        <header class="header">    <div class="header__container">        <div class="header__logo">            <picture><source srcset="img/mafia-logo.webp" type="image/webp"><img src="img/mafia-logo.png" alt="Mafia"></picture>        </div>    </div></header>        <main class="main">            <div class="main__content content">                <div class="content__container _container">                    <h1 class="content__title _title">Рандомайзер ролей для мафии</h1>                    <div class="content__roles roles _block">                        <div class="roles__title _title">Выберите количество ролей</div>                        <div class="roles__inputs">                            <label class="roles__field custom-field">                                <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="mafia">                                <span class="roles__placeholder placeholder">Кол-во мафий</span>                            </label>                            <label class="roles__field custom-field">                                <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="don">                                <span class="roles__placeholder placeholder">Кол-во донов</span>                            </label>                            <label class="roles__field custom-field">                                <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="doctor">                                <span class="roles__placeholder placeholder">Кол-во доков</span>                            </label>                            <label class="roles__field custom-field">                                <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="commissiar">                                <span class="roles__placeholder placeholder">Кол-во комиссаров</span>                            </label>                        </div>                    </div>                    <div class="content__players">                        <div class="players__choice choice _block">                            <div class="choice__title _title">Выберите игроков</div>                            <div class="choice__players">                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="Sanya">                                    <label for="Sanya">Саня</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="Egor">                                    <label for="Egor">Егор</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="Maslych">                                    <label for="Maslych">Маслыч</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="Alina">                                    <label for="Alina">Алина</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="Mashya">                                    <label for="Mashya">Маша</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="lexa">                                    <label for="lexa">Леха</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="hryak">                                    <label for="hryak">Хряк</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="stethem">                                    <label for="stethem">Стэтхем</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="vanya">                                    <label for="vanya">Ванек</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="vitya">                                    <label for="vitya">Витя</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="cama">                                    <label for="cama">Кама</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="lera">                                    <label for="lera">Лера</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="nastya">                                    <label for="nastya">Настя</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="kirill">                                    <label for="kirill">Кирилл</label>                                </div>                                <div class="choice__player player checkbox">                                    <input class="custom-checkbox" type="checkbox" id="tomskiy">                                    <label for="tomskiy">Томский</label>                                </div>                            </div>                            <div class="choice__button">                                <button class="button" id="check" onclick="check();">Выбрать всех</button>                                <button class="button" onclick="addPlayer();">Добавить игрока</button>                            </div>                                                    </div>                        <div class="players__results results _block">                            <div class="results__title _title">Назначенные игроки</div>                            <div class="results__result">                                <div class="mafia results__block">Мафия - <span>не известно</span> </div>                                <div class="don results__block">Дон - <span>не известно</span></div>                                <div class="doctor results__block">Доктор - <span>не известно</span></div>                                <div class="сommissar results__block">Комиссар - <span>не известно</span></div>                            </div>                                                    </div>                    </div>                    <div class="content__button">                        <button class="button" id="main-button" onclick="generation();">Сгенерировать</button>                    </div>                </div>            </div>        </main>        <footer class="footer">    </footer>    </div><script src="js/script.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+  <head>    
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">    
+    <link rel="stylesheet" href="css/style.css">    
+    <title>Рандомайзер для мафия</title>
+  </head>
+  <body>    
+    <div class="wrapper">        
+      <header class="header">    
+        <div class="header__container">        
+          <div class="header__logo">            
+            <picture>
+              <source srcset="img/mafia-logo.webp" type="image/webp">
+              <img src="img/mafia-logo.png" alt="Mafia">
+            </picture>        
+          </div>    
+        </div>
+      </header>        
+      <main class="main">            
+        <div class="main__content content">                
+          <div class="content__container _container">                    
+            <h1 class="content__title _title">Рандомайзер ролей для мафии
+            </h1>                    
+            <div class="content__roles roles _block">                        
+              <div class="roles__title _title">Выберите количество ролей
+              </div>                        
+              <div class="roles__inputs">                            
+                <label class="roles__field custom-field">                                
+                  <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="mafia">                                
+                  <span class="roles__placeholder placeholder">Кол-во мафий
+                  </span>                            
+                </label>                            
+                <label class="roles__field custom-field">                                
+                  <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="don">                                
+                  <span class="roles__placeholder placeholder">Кол-во донов
+                  </span>                            
+                </label>                            
+                <label class="roles__field custom-field">                                
+                  <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="doctor">                                
+                  <span class="roles__placeholder placeholder">Кол-во доков
+                  </span>                            
+                </label>                            
+                <label class="roles__field custom-field">                                
+                  <input type="number" min="0" max="10"  placeholder="&nbsp;" class="roles__input" id="commissiar">                                
+                  <span class="roles__placeholder placeholder">Кол-во комиссаров
+                  </span>                            
+                </label>                        
+              </div>                    
+            </div>                    
+            <div class="content__players">                        
+              <div class="players__choice choice _block">                            
+                <div class="choice__title _title">Выберите игроков
+                </div>                            
+                <div class="choice__players">                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="Sanya">                                    
+                    <label for="Sanya">Саня
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="Egor">                                    
+                    <label for="Egor">Егор
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="Maslych">                                    
+                    <label for="Maslych">Маслыч
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="Alina">                                    
+                    <label for="Alina">Алина
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="Mashya">                                    
+                    <label for="Mashya">Маша
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="lexa">                                    
+                    <label for="lexa">Леха
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="hryak">                                    
+                    <label for="hryak">Хряк
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="stethem">                                    
+                    <label for="stethem">Стэтхем
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="vanya">                                    
+                    <label for="vanya">Ванек
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="vitya">                                    
+                    <label for="vitya">Витя
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="cama">                                    
+                    <label for="cama">Кама
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="lera">                                    
+                    <label for="lera">Лера
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="nastya">                                    
+                    <label for="nastya">Настя
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="kirill">                                    
+                    <label for="kirill">Кирилл
+                    </label>                                
+                  </div>                                
+                  <div class="choice__player player checkbox">                                    
+                    <input class="custom-checkbox" type="checkbox" id="tomskiy">                                    
+                    <label for="tomskiy">Томский
+                    </label>                                
+                  </div>                            
+                  <div class="choice__player player checkbox">                                    
+		  <input class="custom-checkbox" type="checkbox" id="misha">                                    
+		  <label for="misha">Миша
+		  </label>                                
+		</div>                            
+
+                </div>                            
+                <div class="choice__button">                                
+                  <button class="button" id="check" onclick="check();">Выбрать всех
+                  </button>                                
+                  <button class="button" onclick="addPlayer();">Добавить игрока
+                  </button>                            
+                </div>                                                    
+              </div>                        
+              <div class="players__results results _block">                            
+                <div class="results__title _title">Назначенные игроки
+                </div>                            
+                <div class="results__result">                                
+                  <div class="mafia results__block">Мафия - 
+                    <span>не известно
+                    </span> 
+                  </div>                                
+                  <div class="don results__block">Дон - 
+                    <span>не известно
+                    </span>
+                  </div>                                
+                  <div class="doctor results__block">Доктор - 
+                    <span>не известно
+                    </span>
+                  </div>                                
+                  <div class="сommissar results__block">Комиссар - 
+                    <span>не известно
+                    </span>
+                  </div>                            
+                </div>                                                    
+              </div>                    
+            </div>                    
+            <div class="content__button">                        
+              <button class="button" id="main-button" onclick="generation();">Сгенерировать
+              </button>                    
+            </div>                
+          </div>            
+        </div>        
+      </main>        
+      <footer class="footer">    
+      </footer>    
+    </div>
+    <script src="js/script.min.js">
+    </script>
+  </body>
+</html>
